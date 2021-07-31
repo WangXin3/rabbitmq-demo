@@ -33,6 +33,9 @@ public class Worker {
                 System.out.println(" [x] Done");
                 // 手动ack 其通道关闭、连接关闭或 TCP 连接丢失），RabbitMQ认为消息没处理完，消费者宕机了，会将消息放回队列最前的位置
                 channel.basicAck(delivery.getEnvelope().getDeliveryTag(), false);
+
+                // requeue参数：处理失败后消息是否重新排队，true-重新排，false-丢弃/死信队列（需要配置）
+//                channel.basicNack(delivery.getEnvelope().getDeliveryTag(), false, false);
             }
         };
         channel.basicConsume(TASK_QUEUE_NAME, false, deliverCallback, consumerTag -> {
