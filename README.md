@@ -65,13 +65,13 @@ MQ是Message Queue的简写，字面意思就是消息队列。
 
   routingKey模糊匹配类型的交换机
 
-  *：正好可以代替一个词。
+  `*`：正好可以代替一个词。
 
   * AA.orange.BB
   * AA.BB.orange.BB
   * AA.BB.rabbit 
 
-  #：可以代替零个或多个单词 
+  `#`：可以代替零个或多个单词 
 
   * lazy
   * lazy.AA
