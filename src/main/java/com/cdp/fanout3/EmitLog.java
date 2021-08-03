@@ -16,6 +16,7 @@ public class EmitLog {
         factory.setHost("localhost");
         try (Connection connection = factory.newConnection();
              Channel channel = connection.createChannel()) {
+            // 声明交换机并且和队列绑定
             channel.exchangeDeclare(EXCHANGE_NAME, BuiltinExchangeType.FANOUT);
 
             String message = "Hello World!";

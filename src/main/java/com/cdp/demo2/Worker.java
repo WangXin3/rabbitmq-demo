@@ -20,7 +20,7 @@ public class Worker {
         channel.queueDeclare(TASK_QUEUE_NAME, true, false, false, null);
         System.out.println(" [*] Waiting for messages. To exit press CTRL+C");
 
-        // 设置每个消费者每次可
+        // 设置每个消费者每次最多取多少条消息 count must be between 0 and 65535
         channel.basicQos(1);
 
         DeliverCallback deliverCallback = (consumerTag, delivery) -> {
